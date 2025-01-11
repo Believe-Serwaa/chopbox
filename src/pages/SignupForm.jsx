@@ -1,20 +1,20 @@
-import React, { useState } from 'react';
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { apiSignup } from '../services/auth'; // Import signup function from auth.js
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
-import { Eye, EyeOff } from 'lucide-react';
+import React, { useState } from "react";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { apiSignup } from "../services/auth"; // Import signup function from auth.js
+import { useNavigate } from "react-router-dom"; // Import useNavigate
+import { Eye, EyeOff } from "lucide-react";
 
 const SignupForm = () => {
   const [formData, setFormData] = useState({
-    userName: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
-    phone: '',
-    address: '',
-    selectedQuestion: '', // Initially no question selected
-    answer: '',
+    userName: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    phone: "",
+    address: "",
+    selectedQuestion: "", // Initially no question selected
+    answer: "",
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -46,23 +46,23 @@ const SignupForm = () => {
     e.preventDefault();
 
     // Log form data to the console
-    console.log('Form Data:', formData); // <-- Added console.log here to inspect form data
+    console.log("Form Data:", formData); // <-- Added console.log here to inspect form data
 
     // Check for password match
     if (formData.password !== formData.confirmPassword) {
-      toast.error('Passwords do not match.');
+      toast.error("Passwords do not match.");
       return;
     }
 
     // Ensure a security question is selected
-    if (formData.selectedQuestion === '') {
-      toast.error('Please select a security question.');
+    if (formData.selectedQuestion === "") {
+      toast.error("Please select a security question.");
       return;
     }
 
     // Ensure an answer is provided
-    if (formData.answer.trim() === '') {
-      toast.error('Please provide an answer to your security question.');
+    if (formData.answer.trim() === "") {
+      toast.error("Please provide an answer to your security question.");
       return;
     }
 
@@ -81,16 +81,16 @@ const SignupForm = () => {
       });
 
       if (response.status === 201) {
-        toast.success('Sign Up successful!', {
+        toast.success("Sign Up successful!", {
           onClose: () => {
-            navigate('/login'); // Redirect after toast is closed
+            navigate("/login"); // Redirect after toast is closed
           },
         });
       } else {
-        toast.error('Something went wrong. Please try again.');
+        toast.error("Something went wrong. Please try again.");
       }
     } catch (error) {
-      toast.error(error.response?.data?.message || 'An error occurred.');
+      toast.error(error.response?.data?.message || "An error occurred.");
     } finally {
       setIsSubmitting(false);
     }
@@ -111,13 +111,18 @@ const SignupForm = () => {
 
         {/* Form */}
         <div className="w-full md:w-1/2">
-          <h2 className="text-2xl font-bold text-center text-cyan-600 mb-6">Create Your Account</h2>
+          <h2 className="text-2xl font-bold text-center text-cyan-600 mb-6">
+            Create Your Account
+          </h2>
 
           <form onSubmit={handleSubmit}>
             {/* Full Name and Email */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
               <div>
-                <label className="block text-gray-700 font-medium mb-2" htmlFor="userName">
+                <label
+                  className="block text-gray-700 font-medium mb-2"
+                  htmlFor="userName"
+                >
                   Full Name
                 </label>
                 <input
@@ -131,7 +136,10 @@ const SignupForm = () => {
                 />
               </div>
               <div>
-                <label className="block text-gray-700 font-medium mb-2" htmlFor="email">
+                <label
+                  className="block text-gray-700 font-medium mb-2"
+                  htmlFor="email"
+                >
                   Email
                 </label>
                 <input
@@ -147,64 +155,72 @@ const SignupForm = () => {
             </div>
 
             {/* Password and Confirm Password */}
-<div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-  <div className="relative">
-    <label className="block text-gray-700 font-medium mb-2" htmlFor="password">
-      Password
-    </label>
-    <input
-      type={showPassword ? 'text' : 'password'}
-      id="password"
-      placeholder="Create a password"
-      className="w-full px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 pr-12" // Added padding-right
-      value={formData.password}
-      onChange={handleChange}
-      required
-    />
-    <button
-      type="button"
-      onClick={togglePasswordVisibility}
-      className="absolute top-1/2 right-3 transform -translate-y-1/2 text-gray-500"
-    >
-      {showPassword ? (
-        <EyeOff className="w-6 h-6 mt-8" />
-      ) : (
-        <Eye className="w-6 h-6 mt-8" />
-      )}
-    </button>
-  </div>
-  <div className="relative">
-    <label className="block text-gray-700 font-medium mb-2" htmlFor="confirmPassword">
-      Confirm Password
-    </label>
-    <input
-      type={showConfirmPassword ? 'text' : 'password'}
-      id="confirmPassword"
-      placeholder="Confirm your password"
-      className="w-full px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 pr-12" // Added padding-right
-      value={formData.confirmPassword}
-      onChange={handleChange}
-      required
-    />
-    <button
-      type="button"
-      onClick={toggleConfirmPasswordVisibility}
-      className="absolute top-1/2 right-3 transform -translate-y-1/2 text-gray-400"
-    >
-      {showConfirmPassword ? (
-        <EyeOff className="w-6 h-6 mt-8 text-gray-500" />
-      ) : (
-        <Eye className="w-6 h-6 mt-8 text-gray-500" />
-      )}
-    </button>
-  </div>
-</div>
-
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+              <div className="relative">
+                <label
+                  className="block text-gray-700 font-medium mb-2"
+                  htmlFor="password"
+                >
+                  Password
+                </label>
+                <input
+                  type={showPassword ? "text" : "password"}
+                  id="password"
+                  placeholder="Create a password"
+                  className="w-full px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 pr-12" // Added padding-right
+                  value={formData.password}
+                  onChange={handleChange}
+                  required
+                />
+                <button
+                  type="button"
+                  onClick={togglePasswordVisibility}
+                  className="absolute top-1/2 right-3 transform -translate-y-1/2 text-gray-500"
+                >
+                  {showPassword ? (
+                    <EyeOff className="w-6 h-6 mt-8" />
+                  ) : (
+                    <Eye className="w-6 h-6 mt-8" />
+                  )}
+                </button>
+              </div>
+              <div className="relative">
+                <label
+                  className="block text-gray-700 font-medium mb-2"
+                  htmlFor="confirmPassword"
+                >
+                  Confirm Password
+                </label>
+                <input
+                  type={showConfirmPassword ? "text" : "password"}
+                  id="confirmPassword"
+                  placeholder="Confirm your password"
+                  className="w-full px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 pr-12" // Added padding-right
+                  value={formData.confirmPassword}
+                  onChange={handleChange}
+                  required
+                />
+                <button
+                  type="button"
+                  onClick={toggleConfirmPasswordVisibility}
+                  className="absolute top-1/2 right-3 transform -translate-y-1/2 text-gray-400"
+                >
+                  {showConfirmPassword ? (
+                    <EyeOff className="w-6 h-6 mt-8 text-gray-500" />
+                  ) : (
+                    <Eye className="w-6 h-6 mt-8 text-gray-500" />
+                  )}
+                </button>
+              </div>
+            </div>
 
             {/* Phone Number and Address */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
               <div>
-                <label className="block text-gray-700 font-medium mb-2" htmlFor="phone">
+                <label
+                  className="block text-gray-700 font-medium mb-2"
+                  htmlFor="phone"
+                >
                   Phone Number
                 </label>
                 <input
@@ -218,7 +234,10 @@ const SignupForm = () => {
                 />
               </div>
               <div>
-                <label className="block text-gray-700 font-medium mb-2" htmlFor="address">
+                <label
+                  className="block text-gray-700 font-medium mb-2"
+                  htmlFor="address"
+                >
                   Address
                 </label>
                 <input
@@ -235,7 +254,10 @@ const SignupForm = () => {
 
             {/* Security Question Dropdown */}
             <div className="mb-4">
-              <label className="block text-gray-700 font-medium mb-2" htmlFor="selectedQuestion">
+              <label
+                className="block text-gray-700 font-medium mb-2"
+                htmlFor="selectedQuestion"
+              >
                 Security Question
               </label>
               <select
@@ -248,16 +270,25 @@ const SignupForm = () => {
                 <option value="" disabled>
                   Select a security question
                 </option>
-                <option value="What is your pet’s name?">What is your pet’s name?</option>
-                <option value="What is your mother’s maiden name?">What is your mother’s maiden name?</option>
-                <option value="What is your favorite childhood movie?">What is your favorite childhood movie?</option>
+                <option value="What is your pet’s name?">
+                  What is your pet’s name?
+                </option>
+                <option value="What is your mother’s maiden name?">
+                  What is your mother’s maiden name?
+                </option>
+                <option value="What is your favorite childhood movie?">
+                  What is your favorite childhood movie?
+                </option>
               </select>
             </div>
 
             {/* Security Answer */}
             {formData.selectedQuestion && (
               <div className="mb-4">
-                <label className="block text-gray-700 font-medium mb-2" htmlFor="answer">
+                <label
+                  className="block text-gray-700 font-medium mb-2"
+                  htmlFor="answer"
+                >
                   Your Answer
                 </label>
                 <input
@@ -277,7 +308,7 @@ const SignupForm = () => {
               <button
                 type="submit"
                 className={`w-48 bg-gradient-to-r from-cyan-500 via-cyan-600 to-cyan-700 text-white py-2 px-4 rounded-full shadow-lg hover:shadow-xl hover:from-cyan-600 hover:to-cyan-800 transform hover:scale-105 transition duration-300 ${
-                  isSubmitting ? 'opacity-50' : ''
+                  isSubmitting ? "opacity-50" : ""
                 }`}
                 disabled={isSubmitting}
               >
@@ -306,18 +337,27 @@ const SignupForm = () => {
                     Signing Up...
                   </div>
                 ) : (
-                  'Sign Up'
+                  "Sign Up"
                 )}
               </button>
             </div>
           </form>
 
           <p className="text-gray-600 text-center mt-4">
-            Already have an account?{' '}
-            <a href="/login" className="text-cyan-600 font-medium hover:underline">
+            Already have an account?{" "}
+            <a
+              href="/login"
+              className="text-cyan-600 font-medium hover:underline"
+            >
               Log In
             </a>
           </p>
+          {/* Back to Home Link */}
+          <div className="flex justify-center mt-4">
+            <a href="/" className="text-cyan-600 font-medium hover:underline">
+              Back to Home
+            </a>
+          </div>
         </div>
       </div>
     </div>
