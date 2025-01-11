@@ -1,5 +1,5 @@
-import { motion } from 'framer-motion';
-import img1 from '../assets/images/hausa-koko.jpg';
+import { motion } from "framer-motion";
+import img1 from "../assets/images/hausa-koko.jpg";
 
 function HeroSection() {
   return (
@@ -9,8 +9,10 @@ function HeroSection() {
         className="absolute inset-0"
         style={{
           backgroundImage: `url(${img1})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          height: "100%", // Ensure full height is covered
+
         }}
       />
 
@@ -18,21 +20,19 @@ function HeroSection() {
       <div
         className="absolute inset-0"
         style={{
-          backgroundColor: 'rgba(0, 0, 0, 0.5)', // Black with 50% opacity
+          backgroundColor: "rgba(0, 0, 0, 0.5)", // Black with 50% opacity
         }}
       ></div>
 
       {/* Typewriter Effect Heading */}
       <motion.h1
         className="text-3xl sm:text-4xl lg:text-6xl font-bold text-green-100 relative z-10 typewriter"
-
-        style={{ fontFamily: 'Libre Baskerville, serif' }} // Applying the font via inline style
-
+        style={{ fontFamily: "Libre Baskerville, serif", paddingBottom: '20px' }} // Applying the font via inline style
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
       >
-        Authentic Ghanaian Delicacies
+        Ghanaian Morning Delights
       </motion.h1>
 
       {/* Subheading */}

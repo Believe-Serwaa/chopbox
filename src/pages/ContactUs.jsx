@@ -4,15 +4,16 @@ import Footer from "../components/Footer";
 
 function ContactUs() {
   return (
-    <div className="min-h-screen flex flex-col">
+    <motion.div className="relative min-h-screen flex flex-col pt-16">
       {/* Navbar */}
       <Navbar />
 
       {/* Main Content */}
-      <div className="flex-grow bg-gray-50 flex flex-col items-center py-8 px-4 sm:px-8">
+      <div className="flex-grow bg-gradient-to-r from-cyan-100 to-cyan-50 flex flex-col items-center py-8 px-4 sm:px-8 relative ">
+
         {/* Header Section */}
         <motion.h1
-          className="text-3xl sm:text-4xl font-bold text-green-700 mb-4 sm:mb-6"
+          className="text-3xl sm:text-4xl font-bold text-cyan-700 mb-4 sm:mb-6"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
@@ -32,7 +33,7 @@ function ContactUs() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7 }}
           >
-            <h2 className="text-xl sm:text-2xl font-semibold text-green-700 mb-4">
+            <h2 className="text-xl sm:text-2xl font-semibold text-cyan-700 mb-4">
               Send Us a Message
             </h2>
             <form>
@@ -42,7 +43,7 @@ function ContactUs() {
                 </label>
                 <input
                   type="text"
-                  className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring focus:ring-green-200 transition-all duration-300 ease-in-out"
+                  className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring focus:ring-cyan-200 transition-all duration-300 ease-in-out"
                   placeholder="Your Name"
                   required
                 />
@@ -53,7 +54,7 @@ function ContactUs() {
                 </label>
                 <input
                   type="email"
-                  className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring focus:ring-green-200 transition-all duration-300 ease-in-out"
+                  className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring focus:ring-cyan-200 transition-all duration-300 ease-in-out"
                   placeholder="Your Email Address"
                   required
                 />
@@ -63,7 +64,7 @@ function ContactUs() {
                   Message
                 </label>
                 <textarea
-                  className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring focus:ring-green-200 transition-all duration-300 ease-in-out"
+                  className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring focus:ring-cyan-200 transition-all duration-300 ease-in-out"
                   placeholder="Your Message"
                   rows="5"
                   required
@@ -71,7 +72,7 @@ function ContactUs() {
               </div>
               <motion.button
                 type="submit"
-                className="w-full bg-green-700 text-white py-2 rounded-lg hover:bg-green-500 transition transform hover:scale-105"
+                className="w-full bg-cyan-700 text-white py-2 rounded-lg hover:bg-cyan-500 transition transform hover:scale-105"
                 whileHover={{ scale: 1.05 }}
               >
                 Submit
@@ -86,7 +87,7 @@ function ContactUs() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7 }}
           >
-            <h2 className="text-xl sm:text-2xl font-semibold text-green-700 mb-4">
+            <h2 className="text-xl sm:text-2xl font-semibold text-cyan-700 mb-4">
               Contact Information
             </h2>
             <p className="text-gray-600 mb-4">
@@ -103,14 +104,14 @@ function ContactUs() {
                 📧 <strong>Email:</strong>{" "}
                 <a
                   href="mailto:support@chopboxexpress.com"
-                  className="text-green-700 hover:underline transition duration-300 ease-in-out"
+                  className="text-cyan-700 hover:underline transition duration-300 ease-in-out"
                 >
                   chopbox.express@gmail.com
                 </a>
               </li>
             </ul>
             <div className="mt-6">
-              <h3 className="text-lg sm:text-xl font-medium text-green-700 mb-2">
+              <h3 className="text-lg sm:text-xl font-medium text-cyan-700 mb-2">
                 Find Us Here:
               </h3>
               <iframe
@@ -127,7 +128,7 @@ function ContactUs() {
 
       {/* Footer */}
       <Footer />
-    </div>
+    </motion.div>
   );
 }
 
