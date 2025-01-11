@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 
 function ContactUs() {
   return (
-    <motion.div className="relative min-h-screen flex flex-col pt-16">
+    <motion.div className="relative min-h-screen flex flex-col pt-20 sm:pt-24">
       {/* Navbar */}
       <Navbar />
 
