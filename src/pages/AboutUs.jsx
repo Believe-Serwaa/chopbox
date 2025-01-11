@@ -1,158 +1,205 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { ChefHat, Utensils, Clock, Award, Eye, Rocket } from "lucide-react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import ceoImage from "../assets/images/ceo1.jpg";
 
-const AboutUs = () => {
+function AboutUs() {
   return (
-    <div className="bg-gradient-to-b from-yellow-50 to-yellow-200 py-16">
-      {/* Navbar */}
+    <div className="bg-cyan-50 min-h-screen text-cyan-900">
+      {/* Navbar Component */}
       <Navbar />
 
-      <div className="max-w-7xl mx-auto px-6 text-gray-800">
-        {/* Header Section */}
-        <motion.div
-          className="text-center mb-16 relative"
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
+      <main className="container mx-auto px-4 py-12 pt-20">
+        {/* Hero Section */}
+        <motion.section
+          className="text-center mb-24 pt-16 md:pt-11" // Updated pt-24 for larger screens
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h1 className="text-5xl md:text-6xl font-extrabold text-yellow-600 mb-6">
-            About{" "}
-            <span className="underline decoration-wavy decoration-yellow-400">
-              Chopbox Express
-            </span>
-          </h1>
-          <p className="text-lg md:text-xl font-medium text-gray-700 leading-relaxed">
-            Where tradition meets convenience! Experience authentic Ghanaian
-            delicacies crafted with care, designed to fit your busy lifestyle.
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            Taste the <span className="text-cyan-600">Tradition</span>,<br />
+            Embrace the <span className="text-cyan-600">Convenience</span>
+          </h2>
+          <p className="text-lg md:text-xl mb-8 max-w-3xl mx-auto">
+            Experience authentic Ghanaian delicacies crafted with care, designed
+            to fit your busy lifestyle.
           </p>
-          <div className="absolute -top-8 left-1/3 w-20 h-20 bg-yellow-300 rounded-full blur-xl opacity-30"></div>
-          <div className="absolute -top-8 right-1/3 w-16 h-16 bg-yellow-500 rounded-full blur-2xl opacity-20"></div>
-        </motion.div>
+        </motion.section>
 
         {/* Journey Section */}
-        <div className="mb-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <motion.div
-            initial={{ x: -50, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-4xl font-bold text-yellow-600 mb-4">
-              Our Journey
-            </h2>
-            <p className="text-lg text-gray-700 leading-relaxed mb-6">
-              Since August 2019, Chopbox Express has been a lifeline for
-              students far from home, delivering essential provisions. In March
-              2020, we pivoted to bring families the authentic taste of Ghanaian
-              cuisine with our ready-to-use delicacies, focusing on working
-              mothers and busy households.
-            </p>
+        <section className="mb-24">
+          <h3 className="text-4xl font-bold mb-12 text-center">
+            Our Flavorful Journey
+          </h3>
+          <div className="grid md:grid-cols-2 gap-12 items-center">
             <motion.div
-              className="flex flex-wrap gap-4 justify-start"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1 }}
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              className="space-y-6"
             >
-              <span className="px-4 py-2 bg-yellow-500 text-white text-sm font-semibold rounded-full shadow-md">
-                Convenience
-              </span>
-              <span className="px-4 py-2 bg-yellow-600 text-white text-sm font-semibold rounded-full shadow-md">
-                Authenticity
-              </span>
-              <span className="px-4 py-2 bg-yellow-400 text-white text-sm font-semibold rounded-full shadow-md">
-                Quality
-              </span>
+              <p className="text-lg md:text-xl">
+                Since August 2019, Chopbox Express has been a lifeline for
+                students far from home, delivering essential provisions. In
+                March 2020, we pivoted to bring families the authentic taste of
+                Ghanaian cuisine with our ready-to-use delicacies.
+              </p>
+              <p className="text-lg md:text-xl">
+                Our focus? Helping working mothers and busy households savor the
+                taste of home without the hassle.
+              </p>
             </motion.div>
-          </motion.div>
-          <motion.div
-            className="relative bg-yellow-50 rounded-lg shadow-lg p-6 overflow-hidden"
-            initial={{ x: 50, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h3 className="text-2xl font-semibold text-yellow-600 mb-4">
-              Our Popular Products
-            </h3>
-            <ul className="space-y-3">
-              {[
-                "Hausa Koko Paste",
-                "Koose Powder",
-                "Pinkaso Powder",
-                "Toogbɛi Powder",
-              ].map((item, index) => (
-                <li
-                  key={index}
-                  className="text-lg font-medium text-gray-700 flex items-center"
-                >
-                  <span className="w-4 h-4 bg-yellow-600 rounded-full mr-3"></span>
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <div className="absolute -top-6 right-6 w-20 h-20 bg-yellow-300 rounded-full blur-xl opacity-30"></div>
-          </motion.div>
-        </div>
+            <motion.div
+              className="bg-white rounded-xl shadow-lg p-8"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              whileHover={{ scale: 1.05 }} // Hover effect to scale up
+            >
+              <h4 className="text-2xl font-semibold mb-6 text-cyan-600">
+                Our Popular Products
+              </h4>
+              <ul className="space-y-4">
+                {[
+                  "Hausa Koko Paste",
+                  "Koose Powder",
+                  "Pinkaso Powder",
+                  "Toogbɛi Powder",
+                ].map((product, index) => (
+                  <li key={index} className="flex items-center text-lg">
+                    <Utensils className="text-cyan-600 mr-3 h-6 w-6" />
+                    <span>{product}</span>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          </div>
+        </section>
 
-        {/* Mission Section */}
-        <motion.div
-          className="mb-16 text-center bg-white rounded-lg shadow-lg p-8 relative overflow-hidden"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
-        >
-          <h2 className="text-4xl font-bold text-yellow-600 mb-4">
-            Our Mission
-          </h2>
-          <p className="text-lg text-gray-700 leading-relaxed">
-            To enhance the life of working mothers by saving time and delivering
-            wholesome meals that make life better.
-          </p>
-          <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 w-40 h-40 bg-yellow-200 rounded-full blur-xl opacity-20"></div>
-        </motion.div>
+        {/* Mission and Vision Section */}
+        <section className="mb-24">
+          <div className="grid md:grid-cols-2 gap-12">
+            <motion.div
+              className="bg-white rounded-xl shadow-lg p-8 relative overflow-hidden"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              whileHover={{ scale: 1.05 }}
+            >
+              <div className="flex items-center mb-6">
+                <Rocket className="w-10 h-10 text-cyan-600 mr-4" />
+                <h3 className="text-3xl font-bold text-cyan-600">
+                  Our Mission
+                </h3>
+              </div>
+              <p className="text-xl mb-4 relative z-10">
+                To enhance the life of the working mother to save time in order
+                to live better
+              </p>
+              <Rocket className="absolute bottom-4 right-4 text-cyan-100 w-32 h-32 opacity-20" />
+            </motion.div>
+            <motion.div
+              className="bg-white rounded-xl shadow-lg p-8 relative overflow-hidden"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              whileHover={{ scale: 1.05 }}
+            >
+              <div className="flex items-center mb-6">
+                <Eye className="w-10 h-10 text-cyan-600 mr-4" />
+                <h3 className="text-3xl font-bold text-cyan-600">Our Vision</h3>
+              </div>
+              <p className="text-xl mb-4 relative z-10">
+                To meet the West African taste across the globe
+              </p>
+              <Eye className="absolute bottom-4 right-4 text-cyan-100 w-32 h-32 opacity-20" />
+            </motion.div>
+          </div>
+        </section>
 
-        {/* Vision Section */}
-        <motion.div
-          className="mb-16 text-center bg-yellow-100 rounded-lg shadow-lg p-8 relative overflow-hidden"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
-        >
-          <h2 className="text-4xl font-bold text-yellow-600 mb-4">
-            Our Vision
-          </h2>
-          <p className="text-lg text-gray-700 leading-relaxed">
-            To spread the authentic taste of Ghana across the globe, bringing
-            people together through food.
-          </p>
-          <div className="absolute -top-6 left-6 w-24 h-24 bg-yellow-400 rounded-full blur-2xl opacity-20"></div>
-        </motion.div>
+        {/* Team Section */}
+        <section className="mb-24">
+          <h3 className="text-4xl font-bold mb-12 text-center">
+            Meet Our Culinary Maestros
+          </h3>
+          <div className="grid md:grid-cols-3 gap-12">
+            <motion.div
+              className="text-center"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              whileHover={{
+                translateY: -5, // Slight lift on hover
+                scale: 1.03, // Optional subtle zoom effect
+              }}
+            >
+              <div className="w-48 h-48 rounded-full mx-auto mb-6 shadow-lg border-2 border-cyan-600 overflow-hidden">
+                <img
+                  src={ceoImage}
+                  alt="Rahmatu Sai Jimah - CEO"
+                  className="w-full h-full object-cover block"
+                  width={240}
+                  height={240}
+                />
+              </div>
 
-        {/* Call-to-Action Section */}
-        <motion.div
-          className="text-center relative overflow-hidden"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
-        >
-          <h2 className="text-4xl font-bold text-yellow-600 mb-6">
-            Join Us on This Journey!
-          </h2>
-          <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-            Discover the joy of traditional Ghanaian meals with Chopbox Express.
-            Let’s make every meal a celebration of heritage and flavor.
-          </p>
-          <button className="px-8 py-4 bg-yellow-600 text-white text-lg font-medium rounded-lg shadow-lg hover:bg-yellow-700 transition-all duration-300">
-            Explore More
-          </button>
-          <div className="absolute -bottom-10 right-10 w-32 h-32 bg-yellow-200 rounded-full blur-2xl opacity-20"></div>
-        </motion.div>
-      </div>
+              <h4 className="text-2xl font-semibold mb-2">Rahmatu Sai Jimah</h4>
+              <p className="text-xl text-cyan-600">CEO & Flavor Visionary</p>
+            </motion.div>
+            {/* Add more team members here */}
+          </div>
+        </section>
 
-      {/* Footer */}
+        {/* Why Choose Us Section */}
+        <section>
+          <h3 className="text-4xl font-bold mb-12 text-center">
+            Why Chopbox Express?
+          </h3>
+          <div className="grid md:grid-cols-3 gap-12">
+            {[
+              {
+                icon: <Clock className="w-16 h-16 text-cyan-600" />,
+                title: "Time-Saving Convenience",
+                description:
+                  "Enjoy hassle-free meal preparation with our ready-to-use products.",
+              },
+              {
+                icon: <ChefHat className="w-16 h-16 text-cyan-600" />,
+                title: "Authentic Flavors",
+                description:
+                  "Experience the true taste of Ghanaian cuisine in every bite.",
+              },
+              {
+                icon: <Award className="w-16 h-16 text-cyan-600" />,
+                title: "Premium Quality",
+                description:
+                  "Savor dishes made from high-quality ingredients sourced from trusted suppliers.",
+              },
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                className="bg-white rounded-xl shadow-lg p-8 text-center"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.2 }}
+                whileHover={{ scale: 1.05 }}
+              >
+                <div className="flex justify-center mb-6">{item.icon}</div>
+                <h4 className="text-2xl font-semibold mb-4">{item.title}</h4>
+                <p className="text-lg">{item.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </section>
+      </main>
+
+      {/* Footer Component */}
       <Footer />
     </div>
   );
-};
+}
 
 export default AboutUs;

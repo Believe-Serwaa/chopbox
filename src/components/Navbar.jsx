@@ -27,7 +27,7 @@ function Navbar() {
     setIsOpen(!isOpen);
   };
 
-  const navLinkClasses = `flex items-center space-x-2 hover:text-cyan-700 transition-colors duration-300 ${scrolled ? 'text-cyan-500' : 'text-black'}`;
+  const navLinkClasses = `flex items-center space-x-2 hover:text-cyan-600 hover:underline transition-colors duration-300 ${scrolled ? 'text-cyan-500' : 'text-black'}`;
 
   return (
     <nav className={`relative z-10 ${scrolled ? 'bg-cyan-900' : 'bg-cyan-800'} text-cyan-600`}>
@@ -68,7 +68,7 @@ function Navbar() {
                 <FaUserAlt />
                 <span>Signup</span>
               </a>
-              <a href="/cart" className={`flex items-center space-x-2 hover:text-cyan-700 relative ${scrolled ? 'text-cyan-500' : 'text-black'}`}>
+              <a href="/cart" className={`flex items-center space-x-2 hover:text-cyan-600 relative ${scrolled ? 'text-cyan-500' : 'text-black'}`}>
                 <FaShoppingCart />
                 <span>Cart</span>
                 <span className="absolute top-0 right-0 bg-text-white text-xs w-5 h-5 flex justify-center items-center rounded-full">

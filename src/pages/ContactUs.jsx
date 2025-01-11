@@ -4,16 +4,16 @@ import Footer from "../components/Footer";
 
 function ContactUs() {
   return (
-    <motion.div className="relative min-h-screen flex flex-col pt-20 sm:pt-24">
+    <motion.div className="relative min-h-screen flex flex-col pt-20 sm:pt-24 bg-gradient-to-r from-cyan-100 to-cyan-50">
       {/* Navbar */}
       <Navbar />
 
       {/* Main Content */}
-      <div className="flex-grow bg-gradient-to-r from-cyan-100 to-cyan-50 flex flex-col items-center py-8 px-4 sm:px-8 relative ">
-
+      <div className="flex-grow flex flex-col items-center py-8 px-4 sm:px-8 relative">
         {/* Header Section */}
         <motion.h1
-          className="text-3xl sm:text-4xl font-bold text-cyan-700 mb-4 sm:mb-6"
+            className="text-4xl sm:text-5xl pt-6 font-bold text-cyan-700 mb-4 sm:mb-6"
+
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
