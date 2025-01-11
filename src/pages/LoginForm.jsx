@@ -1,38 +1,38 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import 'react-toastify/dist/ReactToastify.css';
-import { apiLogin } from '../services/auth';
-import { toast, ToastContainer } from 'react-toastify';
-import Illustration from '../assets/images/cup_object.svg';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "react-toastify/dist/ReactToastify.css";
+import { apiLogin } from "../services/auth";
+import { toast, ToastContainer } from "react-toastify";
+import Illustration from "../assets/images/cup_object.svg";
 
 const LoginForm = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    setError('');
+    setError("");
 
     try {
       const response = await apiLogin({ email, password });
       const token = response.data.token;
-      localStorage.setItem('token', token);
+      localStorage.setItem("token", token);
 
-      toast.success('Login successful!', {
-        position: 'top-right',
+      toast.success("Login successful!", {
+        position: "top-right",
         autoClose: 5000,
       });
 
-      navigate('/');
+      navigate("/");
     } catch (err) {
-      setError('Invalid email or password.');
-      toast.error('Login failed. Please try again.', {
-        position: 'top-right',
+      setError("Invalid email or password.");
+      toast.error("Login failed. Please try again.", {
+        position: "top-right",
         autoClose: 5000,
       });
     } finally {
@@ -46,13 +46,15 @@ const LoginForm = () => {
       <div className="min-h-screen bg-gradient-to-br from-cyan-100 to-cyan-50 flex items-center justify-center">
         <div className="flex flex-col md:flex-row bg-white rounded-lg shadow-lg overflow-hidden max-w-4xl w-full gap-1">
           {/* Illustration */}
-          <div className="w-full md:w-1/2 p-1 flex items-center justify-center" style={{ padding: '4px' }}>
+          <div
+            className="w-full md:w-1/2 p-1 flex items-center justify-center"
+            style={{ padding: "4px" }}
+          >
             <img
               src={Illustration}
               alt="Login Illustration"
               className="max-w-full h-auto"
-              style={{ margin: '0' }} // Remove unnecessary margins
-
+              style={{ margin: "0" }} // Remove unnecessary margins
             />
           </div>
 
@@ -111,7 +113,7 @@ const LoginForm = () => {
                 <button
                   type="submit"
                   className={`w-60 bg-gradient-to-r from-cyan-500 via-cyan-600 to-cyan-700 text-white py-2 px-4 rounded-full shadow-lg hover:shadow-xl hover:from-cyan-600 hover:to-cyan-800 transform hover:scale-105 transition duration-300 ${
-                    loading ? 'opacity-50' : ''
+                    loading ? "opacity-50" : ""
                   }`}
                   disabled={loading}
                 >
@@ -140,14 +142,14 @@ const LoginForm = () => {
                       Logging In...
                     </div>
                   ) : (
-                    'Log In'
+                    "Log In"
                   )}
                 </button>
               </div>
             </form>
             {error && <p className="text-red-600 text-center mt-4">{error}</p>}
             <p className="text-gray-600 text-center mt-4">
-              Don't have an account?{' '}
+              Don't have an account?{" "}
               <a
                 href="/signup"
                 className="text-cyan-600 font-medium hover:underline"
@@ -155,6 +157,12 @@ const LoginForm = () => {
                 Sign Up
               </a>
             </p>
+            {/* Back to Home Link */}
+            <div className="flex justify-center mt-4">
+              <a href="/" className="text-cyan-600 font-medium hover:underline">
+                Back to Home
+              </a>
+            </div>
           </div>
         </div>
       </div>
