@@ -25,8 +25,6 @@ function App() {
       path: "/hero",
       element: <HeroSection/>,
     },
-
-
     
     {
       path: "/about",
